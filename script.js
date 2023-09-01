@@ -10,21 +10,24 @@ async function fetchData(){
 }
 
 function render(){
-// Determines if something is selected or not.
+    // Determines if something is selected or not.
     const hash = window.location.hash.slice(1)*1;
     hash > 0 ? selection = puppyData.find(obj => obj.id === hash) : selection = null;
 
+    // If nothing is selected, displays homepage
     if (selection === null){
     const mainPage = puppyData.map(obj => {
-        return `
+        return `<a href ="#${obj.id}" class="card">
         <div class="box">
-            <h1><a href="#${obj.id}">${obj.name}</a></h1>
+            <h1>${obj.name}</h1>
             <h3>${obj.breed}</h3>
-        </div>`
+        </div>
+        </a>`
     }).join('');
     puppyList.innerHTML = mainPage;
     }
 
+    // If something is selected, displays more info on puppy and photo.
     if (selection !== null) {
         const selectionHtml = `
             <div class="selection">
@@ -32,15 +35,15 @@ function render(){
                 <div class="currentPuppy">
                     <h1>${selection.name}</h1>
                     <h2>${selection.breed}</h2>
-                    <img src="${selection.imageUrl}" alt="">
+                    <br>
+                    <img src="${selection.imageUrl}" alt="${selection.name}" class="image">
+                    <h3>Current Status: ${selection.status.toUpperCase()}</h3>
                 </div>
             </div>`
         puppyList.innerHTML = selectionHtml
+        console.log(selection)
     }
 }
 
-
 fetchData()
-
-
 window.addEventListener('hashchange', () => render())

@@ -1,34 +1,57 @@
 body {
-    background-color: black;
-    color: white;
+    background-color: #1a2639;
+    color: #c24d2c;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #puppies {
     display: flex;
-    justify-content: space-around;
-    
-    flex-wrap: wrap;
-}
-
-.box {
-    background-color: blueviolet;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: calc(100%/3 - 3rem);
-    margin-bottom: 1rem;
-    border: 2px white solid;
+    flex-wrap: wrap;
+    max-width: 70vw;
 }
 
 img {
-    height: 50vh;
-    width: 25vw;
+    max-width: 75%;
+    height: auto;
 }
 
 .currentPuppy {
-    border: solid white 2px;
-    padding: 2rem;
+    border: solid #d9dad7 2px;
+    padding: 1rem;
+    background-color: #3e4a61;
+    border-radius: 1.5rem;
+    width: 60vw;
+}
+
+h1 {
+
+}
+
+.card {
+    text-decoration: none;
+    background-color:  #3e4a61;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 150px;
+    height: 225px;
+    margin: 0.5rem;
+    border: 2px white solid;
+    border-radius: 0.5rem;
+    color: #c24d2c;
+}
+
+.image {
+    border-radius: 0.5rem;
+    border: #d9dad7 solid 2px;
+}
+
+.card:hover {
+    background-color: #1a2639;
+    transition: 1s;
 }
